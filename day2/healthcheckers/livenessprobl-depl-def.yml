@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: livenessprobe-deplo
+  labels:
+    app: livenessprobe
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: livenessprobe
+
+  template:
+
+    metadata:
+      labels:
+        app: livenessprobe
+
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+          command: ["/bin/sh","-c","touch hello; sleep 20; rm -f hello; sleep 600"]
+
+          livenessProbe:
+            exec:
+              command:
+                - cat
+                - hello
+            initialDelaySeconds: 5
+            periodSeconds: 3
+
+    

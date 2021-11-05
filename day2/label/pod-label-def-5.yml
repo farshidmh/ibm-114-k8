@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: labels-pod-5
+  labels:
+    environment: prod
+    team: kube-team-beta
+
+    
+
+spec:
+  containers:
+    - name : myc
+      image: nginx
