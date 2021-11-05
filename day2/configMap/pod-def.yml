@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: get-configmap-value
+
+spec:
+  containers:
+    - name: env-printer
+      image: nginx
+
+      env:
+        - name: gtn
+          valueFrom:
+            configMapKeyRef:
+              name: example-config
+              key: GREETING
+
+        - name: fml
+          valueFrom:
+            configMapKeyRef:
+              name: example-config
+              key: family
+
+        - name: nm
+          valueFrom:
+            configMapKeyRef:
+              name: example-config
+              key: name
+
+      #command: ["echo"]
+      #args: ["$(gtn)"]
+    

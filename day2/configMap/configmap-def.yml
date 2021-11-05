@@ -1,0 +1,11 @@
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+  name: example-config
+
+data:
+  GREETING: Hello World
+  name: My name is K8
+  family: Google

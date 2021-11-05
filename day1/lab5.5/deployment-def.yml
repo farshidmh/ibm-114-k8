@@ -20,6 +20,15 @@ spec:
         - name: nginx-container
           image: nginx:1.20
 
+          resource:
+            requests:
+              cpu: 500m #0.5 of a core
+              memory: 100M
+            limit:
+              memory: 300M
+              cpu: 800m #0.8 of a core
+
+
   replicas: 6
 
   selector:
